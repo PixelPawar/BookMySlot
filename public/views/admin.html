@@ -4,6 +4,14 @@
   <div class="admin-form">
     <h3>Create New Slot</h3>
     <div class="form-group">
+      <label>Date</label>
+      <input type="date" ng-model="newSlot.slotDate" style="width: 100%; padding: 12px 16px; border: 3px solid #000; box-shadow: 4px 4px 0px #000; margin-bottom: 15px;" />
+    </div>
+    <div class="form-group">
+      <label>Day</label>
+      <input type="text" ng-model="newSlot.slotDay" placeholder="e.g. Monday" />
+    </div>
+    <div class="form-group">
       <label>Slot Time (e.g. 10:00 AM - 12:00 PM)</label>
       <div style="display: flex; gap: 10px;">
         <input type="text" ng-model="newSlot.slotTime" placeholder="Enter time slot" />
@@ -19,6 +27,8 @@
     <table>
       <thead>
         <tr>
+          <th>Date</th>
+          <th>Day</th>
           <th>Time</th>
           <th>Status</th>
           <th>Booked By</th>
@@ -26,6 +36,8 @@
       </thead>
       <tbody>
         <tr ng-repeat="slot in slots">
+          <td>{{slot.slotDate}}</td>
+          <td>{{slot.slotDay}}</td>
           <td>{{slot.slotTime}}</td>
           <td>
             <span class="slot-status" style="margin-bottom: 0;" ng-class="{'status-available': slot.isAvailable, 'status-booked': !slot.isAvailable}">

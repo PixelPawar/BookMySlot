@@ -15,6 +15,7 @@
 
   <div class="slots-grid" ng-if="!loading && searched && myBookings.length > 0">
     <div class="slot-card booked" ng-repeat="slot in myBookings">
+      <div class="slot-date" style="font-size: 16px; font-weight: 700; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 10px;">{{slot.slotDay}}, {{slot.slotDate}}</div>
       <div class="slot-time">{{slot.slotTime}}</div>
       <div class="slot-status status-booked">Booked</div>
       <button class="btn-cancel" ng-click="cancelBooking(slot)">Cancel Booking</button>

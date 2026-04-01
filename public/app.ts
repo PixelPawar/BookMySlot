@@ -116,7 +116,7 @@ app.controller('MyBookingsController', ['$scope', 'ApiService', ($scope: any, Ap
 
 app.controller('AdminController', ['$scope', 'ApiService', ($scope: any, ApiService: any) => {
   $scope.slots = [];
-  $scope.newSlot = { slotTime: '' };
+  $scope.newSlot = { slotDate: '', slotDay: '', slotTime: '' };
   $scope.loading = true;
 
   $scope.loadSlots = () => {
@@ -131,15 +131,17 @@ app.controller('AdminController', ['$scope', 'ApiService', ($scope: any, ApiServ
   };
 
   $scope.createSlot = () => {
-    if (!$scope.newSlot.slotTime) return;
+    if (!$scope.newSlot.slotDate || !$scope.newSlot.slotDay || !$scope.newSlot.slotTime) return;
     
     const data = {
+      slotDate: $scope.newSlot.slotDate,
+      slotDay: $scope.newSlot.slotDay,
       slotTime: $scope.newSlot.slotTime
     };
     
     ApiService.createOrUpdateSlot(data).then((response: any) => {
       $scope.slots.push(response.data);
-      $scope.newSlot.slotTime = '';
+      $scope.newSlot = { slotDate: '', slotDay: '', slotTime: '' };
     }).catch((err: any) => {
       console.error(err);
       alert('Failed to create slot.');
