@@ -1,0 +1,32 @@
+<div class="glass-panel slide-in-top">
+  <h2>Available Lab Slots</h2>
+  <div class="loader" ng-if="loading"></div>
+  
+  <div class="slots-grid" ng-if="!loading">
+    <div class="slot-card" 
+         ng-repeat="slot in slots" 
+         ng-class="{'available': slot.isAvailable, 'booked': !slot.isAvailable}">
+      
+      <div class="slot-time">{{slot.slotTime}}</div>
+      <div class="slot-status" ng-class="{'status-available': slot.isAvailable, 'status-booked': !slot.isAvailable}">
+        {{slot.isAvailable ? 'Available' : 'Booked'}}
+      </div>
+      
+      <div ng-if="slot.isAvailable" class="book-form">
+        <input type="text" ng-model="slot.inputRollNumber" placeholder="Enter Roll Number" />
+        <button ng-click="bookSlot(slot)" ng-disabled="slot.bookingInProgress || !slot.inputRollNumber">
+          {{slot.bookingInProgress ? 'Booking...' : 'Book Slot'}}
+        </button>
+      </div>
+
+      <div ng-if="!slot.isAvailable" class="booked-info">
+        <p>Booked by: <strong>{{slot.bookedBy}}</strong></p>
+      </div>
+      
+    </div>
+    
+    <div ng-if="slots.length === 0" class="empty-state">
+      No slots have been configured by the admin yet.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="glass-panel slide-in-top">
+  <h2>My Bookings</h2>
+  
+  <div class="admin-form">
+    <div class="form-group">
+      <label>Enter your Roll Number to view your bookings</label>
+      <div style="display: flex; gap: 10px;">
+        <input type="text" ng-model="searchRollNumber" placeholder="e.g. 19CS001" />
+        <button style="width: auto;" ng-click="fetchMyBookings()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader" ng-if="loading"></div>
+
+  <div class="slots-grid" ng-if="!loading && searched && myBookings.length > 0">
+    <div class="slot-card booked" ng-repeat="slot in myBookings">
+      <div class="slot-time">{{slot.slotTime}}</div>
+      <div class="slot-status status-booked">Booked</div>
+      <button class="btn-cancel" ng-click="cancelBooking(slot)">Cancel Booking</button>
+    </div>
+  </div>
+  
+  <div ng-if="!loading && searched && myBookings.length === 0" class="empty-state">
+    No bookings found for roll number: {{searchRollNumber}}
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "None",
+    "strict": true,
+    "outFile": "./app.js",
+    "skipLibCheck": true
+  },
+  "include": ["**/*.ts"]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "bookmyslot",
+  "version": "1.0.0",
+  "description": "Lab slot booking system",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts",
+    "build": "tsc && tsc -p public/tsconfig.json"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.8.9",
+    "@types/angular-route": "^1.7.6",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
