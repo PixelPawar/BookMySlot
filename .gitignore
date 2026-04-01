@@ -1,4 +1,37 @@
-package-lock.json
-package.json
-tsconfig.json
-node_modules
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# TypeScript
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+
+# Coverage (testing)
+coverage/
+
+# MongoDB local files (if any)
+*.mongodb
